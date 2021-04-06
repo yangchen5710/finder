@@ -1,0 +1,145 @@
+<!--pages/my/index.wxml-->
+<view class="container">
+   <view class="a"> 
+      <view class="member">
+         <view class="member_title">
+            <view class="member_level">{{member_design[swiperIndex].name}}</view>
+            <view wx:if="{{swiperIndex === userInfo.member_level-1}}" class="dangqian">
+               <view class="dangqian_text">当前</view>
+            </view>
+         </view>
+      </view>   
+      <view style="width: 100%;height: 332rpx;margin-top:42rpx;">
+         <swiper style="min-height: 332rpx" mode="widthFix" bindtransition="transition" bindchange="changeMember" current="{{top==0 ? swiperIndex : userInfo.member_level-1}}" circular="{{false}}" indicator-dots="{{false}}" autoplay="{{false}}" interval="{{4000}}" duration="{{600}}" previous-margin="85rpx" next-margin="40rpx">
+            <block wx:for="{{member_design}}" wx:key="index">
+               <swiper-item>
+                  <view class="member_name_font">{{item.name}}</view>
+                  <image mut-bind:touchstart="longpress" mut-bind:touchend="longpress" class='mamebr_backg' src="{{item.back_img}}"/>
+               </swiper-item>
+            </block>
+         </swiper>
+      </view>
+      <view class="member_quanyi">
+         <scroll-view style="height: 150rpx;" scroll-y="true">
+            <view class="member_quanyi_title">会员权益</view>
+            <view class="member_quanyi_des" wx:for="{{member_design[swiperIndex].member_welfare_json}}" wx:key="index">
+               <view class="font">{{item.name}}:</view>
+               <view>{{item.description}}</view>
+            </view>
+         </scroll-view>
+      </view>
+   </view>
+   <view class="b" style="margin-top:{{top}}">
+      <view class="qian_quyu" bindtap="test">
+         <image class="qian"  src="../../icons/qian.png"/>
+      </view>
+      <view class="member_content">
+         <view>
+            <image class='avatar' src="{{userInfo.avatarUrl}}"/>
+         </view>
+
+         <view style="margin-top:32rpx">{{userInfo.nickName}}</view>
+         <view class="member_create_time">{{userInfo.create_time}} 成为Mellower Coffee会员</view>
+         <view class="process">
+            <progress stroke-width="5" percent="{{((userInfo.member_energy_score-member_design[userInfo.member_level-1].energy_low)/(member_design[userInfo.member_level].energy_low-member_design[userInfo.member_level-1].energy_low))*100}}" color="{{member_design[userInfo.member_level-1].color}}" active border-radius="3" duration="10"/>
+         </view>
+
+
+         <view class="pay_again" wx:if="{{userInfo.member_level == 5}}">
+            <!-- 再消费<text>{{member_design[swiperIndex].energy_low - userInfo.member_energy_score}}元 </text>升为银麦会员 -->
+            哇，客官您里边请！
+         </view>
+         <view class="pay_again" wx:if="{{userInfo.member_level < 5}}">
+            再消费<text style="color:#CCAA7A"> {{member_design[userInfo.member_level].energy_low - userInfo.member_energy_score}}元 </text>升为{{member_design[userInfo.member_level].name}}会员
+         </view>
+         <view style="width:100%">
+            <view style="display: flex;margin: 53rpx 44rpx;">
+                  <view class="kuai kuai_content">
+                        <view style="width: 30%;">
+                           <image class="zhu"  src="../../icons/jifen.png"/>
+                        </view>
+                        <view class="kuai_text">
+                           <view>积分商城</view>
+                           <view class="kuai_text1">兑换积分好礼</view>
+                        </view>
+                  </view>
+                  <view style="width:4%"></view>
+                  <view class="kuai kuai_content">
+                        <view style="width: 30%;">
+                           <image class="zhu"  src="../../icons/card.png"/>
+                        </view>
+                        <view class="kuai_text">
+                           <view>卡券兑换</view>
+                           <view class="kuai_text1">兑换福利卡券</view>
+                        </view>
+                  </view>
+            </view>
+            <view class="list">
+               <view class="list_item">
+                  <view class="list_item_title" style="width:90%">会员权益</view>
+                  <view class="list_item_title" style="width:10%;display: flex;justify-content: flex-end;">
+                     <image style="width:12rpx;" mode="widthFix" src="../../icons/you.png"/>
+                  </view>
+               </view>
+               <view class="list_item">
+                  <view class="list_item_title" style="width:90%">麦隆咖啡礼品卡</view>
+                  <view class="list_item_title" style="width:10%;display: flex;justify-content: flex-end;">
+                     <image style="width:12rpx;" mode="widthFix" src="../../icons/you.png"/>
+                  </view>
+               </view>
+               <view class="list_item">
+                  <view class="list_item_title" style="width:90%">我的订单</view>
+                  <view class="list_item_title" style="width:10%;display: flex;justify-content: flex-end;">
+                     <image style="width:12rpx;" mode="widthFix" src="../../icons/you.png"/>
+                  </view>
+               </view>
+               <view class="list_item">
+                  <view class="list_item_title" style="width:90%">消费历史</view>
+                  <view class="list_item_title" style="width:10%;display: flex;justify-content: flex-end;">
+                     <image style="width:12rpx;" mode="widthFix" src="../../icons/you.png"/>
+                  </view>
+               </view>
+               <view class="list_item">
+                  <view class="list_item_title" style="width:90%">收货地址</view>
+                  <view class="list_item_title" style="width:10%;display: flex;justify-content: flex-end;">
+                     <image style="width:12rpx;" mode="widthFix" src="../../icons/you.png"/>
+                  </view>
+               </view>
+               <view class="list_item">
+                  <view class="list_item_title" style="width:90%">发票管理</view>
+                  <view class="list_item_title" style="width:10%;display: flex;justify-content: flex-end;">
+                     <image style="width:12rpx;" mode="widthFix" src="../../icons/you.png"/>
+                  </view>
+               </view>
+               <view class="list_item">
+                  <view class="list_item_title" style="width:90%">个人信息</view>
+                  <view class="list_item_title" style="width:10%;display: flex;justify-content: flex-end;">
+                     <image style="width:12rpx;" mode="widthFix" src="../../icons/you.png"/>
+                  </view>
+               </view>
+               <!-- <view class="list_item">
+                  <view class="list_item_title" style="width:90%">客户服务</view>
+                  <view class="list_item_title" style="width:10%;display: flex;justify-content: flex-end;">
+                     <image style="width:12rpx;" mode="widthFix" src="../../icons/you.png"/>
+                  </view>
+               </view> -->
+               <view class="list_item">
+                  <view class="list_item_title" style="width:90%">留言 & 建议</view>
+                  <view class="list_item_title" style="width:10%;display: flex;justify-content: flex-end;">
+                     <image style="width:12rpx;" mode="widthFix" src="../../icons/you.png"/>
+                  </view>
+               </view>
+               <view class="list_item1">
+                  <view class="list_item_title" style="width:90%">设置</view>
+                  <view class="list_item_title" style="width:10%;display: flex;justify-content: flex-end;">
+                     <image style="width:12rpx;" mode="widthFix" src="../../icons/you.png"/>
+                  </view>
+               </view>
+            </view>
+         </view>
+      </view>
+      
+      
+    
+   </view>
+</view>

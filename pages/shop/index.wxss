@@ -1,0 +1,93 @@
+/* pages/shop/index.wxss */
+.banner{
+  width: 100%;
+}
+.user-point{
+  width: 100%;
+  height: 107rpx;
+  background: #FFFFFF;
+  box-shadow: 0rpx 2rpx 12rpx 0rpx rgba(232, 232, 232, 0.5);
+}
+.user-point-content{
+  display: flex;
+  align-items: center;
+  margin: 33rpx 50rpx;
+}
+.goods-list{
+  margin: 23rpx 21rpx 0rpx 21rpx;
+}
+.goods{
+  width: 49%;
+  height: 448rpx;
+  /* background: #F7F8F9; */
+  box-shadow: 0rpx 1rpx 8rpx 0rpx rgba(230, 230, 230, 0.5);
+  border-radius: 16rpx;
+  border: 1rpx solid #EAEBEC;
+}
+.goods_detail{
+  margin: 25rpx 25rpx 32rpx 31rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.goods_detail_price{
+  display: flex;
+  height: 33rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  line-height: 33rpx;
+
+}
+.goods_detail_price_color{
+  color: #EC343E;
+}
+.goods_name{
+  /* height: 40rpx; */
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #000000;
+  line-height: 40rpx;
+}
+.duihuan_button{
+  margin-top: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 196rpx;
+  height: 49rpx;
+  background: rgba(231, 169, 132, 0.1);
+  border-radius: 24rpx;
+}
+.duihuan_button_text{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80rpx;
+  height: 37rpx;
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #EC343E;
+  line-height: 37rpx;
+
+}
+
+.content{
+  width: 100%;
+  height: 100%;
+  /* background-image: url(https://img.goatup.cn/back.png); */
+  /* background-size: cover ; */
+  overflow: scroll;
+}
+.test{
+  margin-top: 400rpx;
+  height: 100%;
+  background: rgba(255, 255, 255, 1);
+}
+.test1{
+  height: 100%;
+  background: rgba(255, 255, 255, 1);
+}

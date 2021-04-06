@@ -1,13 +1,261 @@
 <!--index.wxml-->
+
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+    <scroll-view class="scroll" bindscroll="scroll" scroll-y="{{true}}"> 
+      <view class="banner">
+        <swiper style="min-height: 556rpx" mode="widthFix" circular="{{true}}" indicator-dots="{{false}}"
+          autoplay="{{true}}" interval="{{4000}}" duration="{{600}}">
+          <block wx:for="{{banner}}" wx:key="index" class="img-caption">
+            <swiper-item>
+              <image style="width:100%" mode="widthFix" src="{{item.pic}}"/>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+     
+      <view class="content">
+        <view wx:if="{{!hasUserInfo && !hasUserPhone}}" class="user">
+          <view class="order1">
+            <view class="hi" style="margin-left:40rpx">
+              <view>
+                <image style="width:30rpx" mode="widthFix" src="../../icons/hi.png"/>
+                <text style="font-size:34rpx;font-family: PingFangSC-Medium, PingFang SC;">～加入麦隆会员</text>
+              </view>
+              <view>
+                <text style="width: 343rpx;height: 46rpx;font-size: 30rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;line-height: 46rpx;">即可免费领取意式咖啡1杯</text>
+              </view>
+            </view>
+            <view class="user-login" style="z-index:100;text-aligin:center">
+                <button class="user-login-button user-login-button-text" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+                  一键入会
+                </button>
+            </view>
+            <view class="user-back-img">
+              <image style="height:182rpx;" mode="widthFix" src="../../icons/xingxing.png"/>
+            </view>
+          </view>
+        </view>
+        
+        <view wx:if="{{hasUserInfo && !hasUserPhone}}" class="user">
+          <view class="order1">
+            <view class="hi2" style="display: flex;align-items: center;margin-left: 19rpx;">
+              <view style="display: flex;flex-direction: column;align-items: center;">
+                <view>
+                  <image style="width:110rpx;height:110rpx;" bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+                </view>
+                <view style="position: absolute;margin-top: 90rpx;">
+                  <image style="width:100rpx;height:29rpx" src="{{member_level_img}}"/>
+                </view>
+              </view>
+              <view style="margin:20rpx 0rpx 20rpx 20rpx;display: flex;flex-direction: column;">
+                <view class="user-name">
+                  <text class="user-name-text">Hi，{{userInfo.nickName}}</text>
+                </view>
+                <view class="user-coupon-jifen-text">
+                  <view class="user-coupon-jifen-text-1">
+                    <text class="coupon-jifen-font">授权手机号,享受更多福利</text>
+                    <!-- <text class="coupon-jifen-font">888</text> -->
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="user-login" style="z-index:100;text-aligin:center">
+              <view>
+                <button class="user-login-button user-login-button-text" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+                  一键授权
+                </button> 
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view wx:if="{{hasUserInfo && hasUserPhone}}" class="user">
+          <view class="order1">
+            <view class="hi2" style="display: flex;align-items: center;margin-left: 19rpx;">
+              <view style="display: flex;flex-direction: column;align-items: center;">
+                <view>
+                  <image style="width:110rpx;height:110rpx;" bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+                </view>
+                <view style="position: absolute;margin-top: 90rpx;">
+                  <image style="width:100rpx;height:29rpx" src="{{member_level_img}}"/>
+                </view>
+              </view>
+              <view style="margin:20rpx 0rpx 20rpx 20rpx;display: flex;flex-direction: column;">
+                <view class="user-name">
+                  <text class="user-name-text">Hi，{{userInfo.nickName}}</text>
+                </view>
+                <view class="user-coupon-jifen-text">
+                  <view class="user-coupon-jifen-text-1">
+                    <text class="huiyuanma-text">优惠券 </text>
+                    <text class="coupon-jifen-font">{{userInfo.coupons_num}}</text>
+                  </view>
+                  <view class="user-coupon-jifen-text-1">
+                    <text class="huiyuanma-text">积分 </text>
+                    <text class="coupon-jifen-font">{{userInfo.member_points}}</text>
+                  </view>
+                </view>
+              </view>
+            </view> 
+            <view class="shuxian1"></view>
+            <view class="user-login2" bindtap="showUserQrcode">
+              <view class="huiyuanma"> 
+                  <view>
+                    <image style="width:68rpx;height:71rpx;" mode="widthFix" src="../../icons/huiyuanma.png"/>
+                  </view>
+                  <view class="huiyuanma-text">会员码</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        
+        <view wx:if="{{hasUserInfo && userInfo.if_new_member}}" class="order-tag">
+            <view class="order-tag-text">首单即享买1赠1券</view>
+        </view>
+        <view wx:if="{{!hasUserInfo || !userInfo.if_new_member}}" class="order-tag1">
+            <view class="order-tag-text"></view>
+        </view>
+
+        <view class="order">
+          <view class="order3">
+            <view class="order-type">
+                <view class="image">
+                  <image style="width:175rpx;height:149;" mode="widthFix" src="../../icons/ziqu.png"/>
+                </view>
+                <view class="title">
+                  <text>门店自取</text> 
+                </view>
+                <view class="des">
+                  <text>下单免排队</text> 
+                </view>
+            </view>
+            <view class="shuxian"></view>
+            <view class="order-type">
+                <view class="image">
+                  <image style="width:172rpx;height:125rpx;" mode="widthFix" src="../../icons/waimai.png"/>
+                </view>
+                <view class="title">
+                  <text>外卖点餐</text>
+                </view>
+                <view class="des">
+                  <text>点击下单 立即配送</text>
+                </view>
+            </view>
+          </view>  
+          <view class="hengxian"></view>
+          <view class="order2">
+            <view wx:if="{{!hasUserInfo}}" class="h2" style="padding:15rpx 0rpx 0rpx 30rpx">
+              <view class="hi1">
+                <text style="font-size:28rpx;font-family: PingFangSC-Medium, PingFang SC;">集满 </text>
+                <text style="font-size:28rpx;font-family: PingFangSC-Medium, PingFang SC;color:#E0B193">{{number}}杯</text>
+                <text style="font-size:28rpx;font-family: PingFangSC-Medium, PingFang SC;"> 送1杯</text>
+              </view>
+              <view class="user-login1" style="display:flex">
+                <view>
+                    <text style="font-weight: 400;color: #C3C3C3;font-size:22rpx;font-family: PingFangSC-Regular, PingFang SC;">未登陆</text>
+                </view>
+                <view style="padding: 0rpx 0rpx 0rpx 10rpx;">
+                    <image style="width:6rpx" mode="widthFix" src="../../icons/you.png"/>
+                </view>
+              </view>
+              
+            </view>
+            <view wx:if="{{hasUserInfo}}" class="h2" style="padding:15rpx 0rpx 0rpx 30rpx">
+              <view class="hi1">
+                <text style="font-size:28rpx;font-family: PingFangSC-Medium, PingFang SC;">再喝  </text>
+                <text style="font-size:28rpx;font-family: PingFangSC-Medium, PingFang SC;color:#E0B193">{{number-cups}}杯</text>
+                <text style="font-size:28rpx;font-family: PingFangSC-Medium, PingFang SC;"> 就能领1杯了</text>
+              </view>
+              <view class="user-login1" style="display:flex">
+                <view>
+                    <text style="font-weight: 400;color: #C3C3C3;font-size:22rpx;font-family: PingFangSC-Regular, PingFang SC;">还剩 {{days}} 天</text>
+                </view>
+                <view style="padding: 0rpx 0rpx 0rpx 10rpx;">
+                    <image style="width:6rpx" mode="widthFix" src="../../icons/you.png"/>
+                </view>
+              </view>
+              
+            </view>
+            <view class="h2">
+              <view class="cups hi1">
+                <block wx:for="{{number}}" wx:key="index">
+                  <view wx:if="{{index >= cups}}" style="margin-right:25rpx">
+                      <image  style="width:50rpx" mode="widthFix" src="../../icons/weidianliang.png"/>
+                  </view>
+                  <view wx:if="{{index < cups}}" style="margin-right:25rpx">
+                    <image style="width:50rpx" mode="widthFix" src="../../icons/dianliang.png"/>
+                  </view>
+                </block>   
+              </view>
+              <view class="user-login1">
+                <text style="font-size:66rpx;font-family:PingFangSC-Semibold, PingFang SC;">{{cups}}</text>
+                <text style="font-size:34rpx;font-family:PingFangSC-Semibold, PingFang SC;">/{{number}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="activity">
+          <view class="activity1">
+              <view>
+                <image class="activity2" mode="widthFix" src="http://img.goatup.cn/mellower/banner/2021-02-04601b6f3f6f49dyaoqingyouli.jpeg"/>
+              </view>
+              <view class="activity1-text">
+                <text style="font-size:28rpx;font-family: PingFangSC-Medium, PingFang SC;">邀请有礼</text>
+                <text style="color: #9E9E9D;font-size:22rpx;font-family: PingFangSC-Regular, PingFang SC;">享20元红包券</text>
+              </view>
+              
+          </view>
+          <view class="activity1" bindtap="goFuliGo">
+              <view>
+                <image class="activity2" mode="widthFix" src="http://img.goatup.cn/mellower/banner/2021-02-04601b70884b9e8fuligou.jpeg"/>
+              </view>
+              <view class="activity1-text">
+                <text style="font-size:28rpx;font-family: PingFangSC-Medium, PingFang SC;">福利购</text>
+                <text style="color: #9E9E9D;font-size:22rpx;font-family: PingFangSC-Regular, PingFang SC;">专享超值优惠</text>
+              </view>
+          </view>
+          <view class="activity1">
+              <view>
+                <image  class="activity2" mode="widthFix" src="http://img.goatup.cn/mellower/banner/2021-02-04601b70b185758chongzhi.jpeg"/>
+              </view>
+              <view class="activity1-text">
+                <text style="font-size:28rpx;font-family: PingFangSC-Medium, PingFang SC;">立即充值</text>
+                <text style="color: #9E9E9D;font-size:22rpx;font-family: PingFangSC-Regular, PingFang SC;">极速升级专享</text>
+              </view>
+          </view>
+        </view>
+        <view class="store">
+          <view class="background"></view>
+          <view class="store-content store-name">
+            <view class="hi " style="display:flex">
+              <view>
+                <text class="store-name-text">{{current_store.storeName}}</text>
+              </view>
+              <view style="padding: 0rpx 0rpx 0rpx 10rpx;">
+                <image style="width:9rpx;" mode="widthFix" src="../../icons/you.png"/>
+              </view>
+              <view wx:if="{{current_store.distance <= 3000}}" class="store-distance">
+                <text  class="store-distance-text">{{current_store.distance}}m</text>
+              </view>
+              <view wx:if="{{current_store.distance > 3000}}" class="store-distance">
+                <text class="store-distance-text">大于3km</text>
+              </view>
+            </view>
+            <view class="user-login">
+              <view class="store-list-button" bindtap="goStoreList">
+                查看门店 
+              </view>
+            </view>
+          </view>
+          <view>
+            <image style="width:100%;height:255rpx;border-radius: 18rpx;"src="{{current_store.storePic}}"/>
+          </view>
+        </view>
+      </view> 
+    </scroll-view>
 </view>
+
+<member-info wx:if="{{isShowQrcode}}" class="member" bind:closeMember="closeMember" catchtouchmove="true" qrcodeURL="{{qrcodeURL}}" userInfo="{{userInfo}}" member_level_img="{{member_level_img}}" style="{{scrollTop}}"></member-info>
+<view wx:if="{{isShowQrcode}}" class="mask" catchtouchmove="true" style="{{scrollTop}}"></view>
+
+

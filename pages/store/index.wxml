@@ -1,0 +1,93 @@
+<!--pages/store/index.wxml-->
+<view class="container">
+  <view class="content">
+    <!-- <view wx:if="{{!userLocation}}" class="auth_location margin20 background">
+       <view class="width70 auth_location_content">
+         <view class="text">
+          您未授权定位，我们为您推荐营业中门店想要获取更优服务，请授权定位。
+         </view>
+       </view>
+       <view class="width30 auth_location_content">
+          <view class="button">
+            <view class="button_text">
+              授权定位
+            </view>
+          </view>
+       </view>
+    </view> -->
+    <view class="store-list">
+      <block wx:for="{{storeList}}" wx:key="index" wx:for-item="stores">
+        <view class="city">
+            <view class="hengxian"></view>
+            <view class="city-name">{{index}}</view>
+            <view class="hengxian"></view>
+        </view>
+        <view>
+            <view class="store background" wx:for="{{stores}}" wx:key="index1" wx:for-item="store">
+              <view class="store_content">
+                <view class="store_name">
+                  <view class="store_name_text">{{store.storeName}}</view>
+                  <view wx:if="{{store.is_support_waimai}}" class="store_name_text1">
+                    <view class="store_name_text2">
+                      可外送
+                    </view>
+                  </view>
+                </view>
+                <view class="store_address">
+                  {{store.address}}
+                </view>
+                <view class="store_pic">
+                  <view class="store_pic_distance">
+                    <view wx:if="{{store.distance <= 3000}}" class="store_pic_distance_text">
+                      距离{{store.distance}}m
+                    </view>  
+                    <view wx:if="{{store.distance > 3000}}" class="store_pic_distance_text">
+                      距离>3km
+                    </view>  
+                  </view>
+                  <view>
+                    <image style="width: 100%;height: 288rpx;border-radius: 8rpx;" src="{{store.storePic}}"/>
+                  </view>
+                </view>
+                <view class="store_state">
+                  <view style="width:70%;display:flex;">
+                    <view wx:if="{{store.operating_state == 2}}">
+                      营业中
+                    </view> 
+                    <view style="color:#9C9C9C;" wx:if="{{store.operating_state == 1}}">
+                      已打烊
+                    </view>
+                  </view>
+                  <view style="width:5%;display:flex;justify-content: flex-end;" bindtap="makePhoneCall" data-tel="{{store.tel}}">
+                      <image style="width: 18rpx;height: 22rpx;" src="../../icons/dianhua.png"/>  
+                  </view>
+                  <view style="width:5%;display:flex;justify-content: flex-end;">
+                      <view class="shuxian"></view>
+                  </view>
+                  <view style="width:20%;display:flex;justify-content: flex-end;">
+                    <view wx:if="{{store.operating_state == 2}}">
+                      立即下单
+                    </view> 
+                    <view style="color:#9C9C9C;" wx:if="{{store.operating_state == 1}}">
+                      立即下单
+                    </view>
+                    <view style="margin-left:5rpx">
+                      <image wx:if="{{store.operating_state == 2}}" style="width:18rpx;height:18rpx;" src="../../icons/xiadan.png"/>
+                      <image wx:if="{{store.operating_state == 1}}" style="width:18rpx;height:18rpx;" src="../../icons/xiadan2.png"/>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+        </view>
+      </block>
+    </view>
+
+    <view class="city" style="margin-top: 40rpx;">
+      <view class="hengxian1"></view>
+      <view class="footer">我也有底线哟</view>
+      <view class="hengxian1"></view>
+    </view>
+  </view>
+</view>
+

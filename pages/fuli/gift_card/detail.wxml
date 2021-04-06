@@ -1,0 +1,40 @@
+<!--pages/fuli/gift_card/detail.wxml-->
+<!-- <text>pages/fuli/gift_card/detail.wxml</text> -->
+<view class="container">
+  <view class="img">
+    <view class="img_content">
+      <image style="width: 665rpx;height: 377rpx;border-radius: 16rpx;" src="{{giftcard.coupon_modal_pic}}"/>
+    </view>
+  </view>
+  <view class="detail">
+    <view class="detail-title">兑换规则</view>
+    <view class="detail-des">
+      <view class="detail-des-list" wx:for="{{giftcard.des_arr}}" wx:key="index">{{item}}</view>
+    </view>
+    <view class="detail-title detail-num">
+      <view style="width:50%">购买数量</view>
+      <view style="width:50%;display: flex;justify-content: flex-end;">
+          <image bindtap="cut" style="width: 44rpx;height: 44rpx;" src="../../../icons/cut.png"/>
+          <view style="width: 87rpx;text-align: center;">{{num}}</view>
+          <image bindtap="add" style="width: 44rpx;height: 44rpx;" src="../../../icons/add.png"/>
+      </view>
+    </view>
+  </view>
+  <view class="pay">
+     <view class="pay_rule">
+       <view>
+        <radio catchtap='checkedTap' style="transform:scale(0.8)" checked="{{selected}}" color="#251714"/>
+       </view>
+       <view>
+        <text class="pay_rule_text">我已同意</text>
+        <text class="pay_rule_text pay_rule_text_color" bindtap="agreement_link">《支付协议》</text>
+       </view>
+      </view>
+     <view class="pay_footer">
+        <view class="pay_button">
+          <view class="pay_button_text">立即购买 ¥{{giftcard.face_money}}</view>
+        </view>
+     </view>
+     
+  </view>
+</view>

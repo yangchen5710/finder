@@ -1,0 +1,206 @@
+/* pages/my/index.wxss */
+.b{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  background-color:#FFFFFF;
+  border-top: 2rpx solid rgba(151, 151, 151, 0.06);
+  transition:all 500ms;
+}
+.c{
+  height: 2000rpx;
+  background-color: cyan;
+}
+.member{
+  margin: 120rpx 88rpx 0rpx 88rpx;
+}
+.member_title{
+  display: flex;
+  align-items: center;
+}
+.member_level{
+  height: 44rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #000000;
+  line-height: 44rpx;
+}
+.member_name{
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #000000;
+  line-height: 40rpx;
+}
+.dangqian{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20rpx;
+  width: 64rpx;
+  height: 35rpx;
+  background: #FFFFFF;
+  border-radius: 8rpx;
+  border: 2rpx solid #CCAA7A;
+}
+.dangqian_text{
+  width: 48rpx;
+  height: 33rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #CCAA7A;
+  line-height: 33rpx;
+}
+.mamebr_backg{
+  height: 332rpx;
+  width: 576rpx;
+}
+.member_quanyi{
+  margin: 40rpx 30rpx 50rpx 88rpx;
+}
+.member_quanyi_title{
+  width: 128rpx;
+  height: 45rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #000000;
+  line-height: 45rpx;
+  margin-bottom: 17rpx;
+}
+.member_quanyi_des{
+  display: flex;
+  margin-bottom: 19rpx;
+  /* height: 33rpx; */
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.66);
+  line-height: 33rpx;
+}
+.font{
+  font-family: PingFangSC-Medium, PingFang SC;
+}
+.avatar{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+}
+.qian_quyu{
+  width: 100%;
+  height: 50rpx;
+  display: flex;
+  justify-content: flex-end;
+  margin: 26rpx 40rpx;
+  z-index: 100;
+}
+.qian{
+  width: 32rpx;
+  height: 44rpx;
+}
+.member_content{
+  width: 100%;
+  position: absolute;
+  top:-66rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.member_create_time{
+  height: 25rpx;
+  font-size: 18rpx;
+  font-family: PingFangSC-Light, PingFang SC;
+  font-weight: 300;
+  color: rgba(30, 31, 30, 0.36);
+  line-height: 25rpx;
+}
+.process{
+  margin-top: 43rpx;
+  width: 484rpx;
+  /* height: 14rpx; */
+  /* background: rgba(205, 206, 210, 0.52); */
+  /* border-radius: 16rpx; */
+  border: 2rpx solid rgba(151, 151, 151, 0.04);
+}
+.pay_again{
+  width: 484rpx;
+  height: 25rpx;
+  font-size: 18rpx;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: rgba(30, 31, 30, 0.72);
+  line-height: 25rpx;
+}
+.kuai{
+  width: 48%;
+  height: 132rpx;
+  background: #ccaa7a4a;
+  border-radius: 18rpx;
+  /* border: 0rpx solid #979797; */
+}
+.kuai_content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.zhu{
+  width: 57rpx;
+  height: 48rpx;
+}
+.coupon{
+  width: 66rpx;
+  height: 41rpx;
+}
+.kuai_text{
+  font-size: 24rpx;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  line-height: 30rpx;
+}
+.kuai_text1{
+  font-size: 18rpx;
+  color: rgba(30, 31, 30, 0.55);
+}
+.list{
+  margin: 53rpx;
+}
+.list_item{
+  display: flex;
+  height:100rpx;
+  align-items: center;
+  border-bottom: 1rpx solid rgba(205, 206, 210, 0.52);
+}
+.list_item1{
+  display: flex;
+  height:100rpx;
+  align-items: center;
+}
+.list_item_title{
+  font-size: 25rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: rgba(30, 31, 30, 0.72);
+  line-height: 30rpx;
+}
+
+.shade{
+  position: absolute;
+  background:transparent;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+}
+
+.member_name_font{
+  position: absolute;
+  margin: 90rpx 0rpx 0rpx 21rpx;
+  font-size: 36rpx;
+  font-family: STYuanti-SC-Regular, STYuanti-SC;
+  font-weight: normal;
+  color: #FFFFFF;
+}

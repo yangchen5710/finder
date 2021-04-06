@@ -1,0 +1,68 @@
+<!-- <view class="user-container">
+    <view class="head-wrap" bind:tap="goProfile">
+
+        <image bindtap="closeMember" src="http://img.goatup.cn/mellower/goods/2021-01-2760113c714a8f4guanbi.png" mode="widthFix" style="width:38rpx;    position: relative;top: 42rpx;z-index: 10000;right: -248rpx;"></image>
+
+        <view class="center">
+            <image class='avatar' src="{{avatar}}"></image>
+            <image class="member_icon" src="{{member_level_img}}"></image>
+        </view>
+
+        <view style="width: 100%; z-index: 100;position: absolute; top: 18%; display:flex; align-items: center; justify-content: center; flex-direction: column">
+            <image style="width: 356rpx; height: 356rpx; margin-bottom: 50rpx;" src="{{qrcodeURL}}" />
+
+            <view class='money' style='font-size: 24rpx; margin-top: 100rpx;'>余额：￥{{recharge}}</view>
+
+            <view class="style">
+                <view class="qiu1"></view>
+                <image src="http://img.goatup.cn/mellower/goods/2021-01-27601135e2ebb6bxuxian.png" mode="widthFix" style="width:564rpx;position:relative;top:-146rpx;"></image>
+                <view class="qiu2"></view>
+            </view>
+
+            <view>
+                <view style="color: #A2A2A2;  font-size: 24rpx; margin-bottom: 30rpx;width: 440rpx; position: relative; bottom: -35rpx;top:-160rpx;">此二维码可累计积分、成长值、咖啡集杯</view>
+            </view>
+
+        </view>
+    </view>
+</view> -->
+
+<view class="user-container">
+    <view class="head-wrap">
+        <view class="center">
+            <view class="center-avatar">
+                <image class='avatar1' src="{{avatar}}"></image>
+            </view>    
+        </view>
+        <view class="asdf">
+                <image class="member_icon" src="{{member_level_img}}"/>
+        </view> 
+        <view class="asdf-zi">
+            <view style="margin:0rpx 48rpx 0rpx 48rpx">
+                <image bindtap="closeMember"  mode="widthFix" style="width:38rpx;height:38rpx" src="http://img.goatup.cn/mellower/goods/2021-01-2760113c714a8f4guanbi.png"></image>
+            </view>  
+        </view>
+        <view class="qrcode">
+            <image style="width: 316rpx; height: 316rpx;" src="{{qrcodeURL}}"/>
+        </view>
+        <view class="recharge">
+            <view class="recharge-text">
+                余额：￥{{recharge}}
+            </view>   
+        </view>
+        <view class="fengexian">
+            <view style="width:30%">
+                <view class="qiu1"></view>
+            </view>
+            <view class="xian">
+                <image src="http://img.goatup.cn/mellower/goods/2021-01-27601135e2ebb6bxuxian.png" mode="widthFix" style="width:564rpx;position:relative;"></image>
+            </view>
+            <view style="width:30%;display: flex;justify-content: flex-end;">
+                <view class="qiu2"></view>
+            </view>  
+        </view>
+        <view class="footer footer-text">
+            此二维码可累计积分、成长值、咖啡集杯
+        </view>
+    </view>
+</view>

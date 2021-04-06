@@ -1,0 +1,44 @@
+<!--pages/menu/index.wxml-->
+<view class="memu-container">
+  <view class="store">
+    <view style="width:7%">
+      <image style="width:35rpx;height:35rpx" src="../../icons/dizhi.png"/>
+    </view>
+    <view class="store_name">
+      <text class="store_name_title">{{store.storeName}}</text>
+      <text class="distance">距您{{store.distance}}km</text>
+    </view>
+    <view class="store_delivery">
+      <view class="store_delivery_mode color">
+        <text class="textfont textcolor1">自取</text>
+      </view>
+      <view class="store_delivery_mode">
+        <text class="textfont textcolor">外送</text>
+      </view>
+    </view>
+  </view>
+  <view class="store_banner">
+    <view wx:if="{{hasBanner}}">
+      <swiper style="height:242rpx;" circular="{{false}}" indicator-dots="{{true}}" indicator-color="#999999" indicator-active-color="#FFFFFF" autoplay="{{true}}" interval="{{4000}}" duration="{{600}}" previous-margin="30rpx">
+        <block wx:for="{{store.banners}}" wx:key="index">
+            <swiper-item>
+                <image style="width:690rpx;height:242rpx;border-radius: 30rpx;" src="{{item.pic}}"/>  
+            </swiper-item>
+        </block>
+      </swiper>
+    </view>  
+  </view>
+  <view class="classify" style="height:100%">
+    <!-- <view > -->
+      <scroll-view class="left" scroll-y="true" style="height:{{listHeight}}px">
+        <view class="classify_left_name" wx:for="{{classify}}" wx:key="index">
+          <text class="classify_left_name_text">{{item.name}}</text>
+        </view>
+      </scroll-view>
+    <!-- </view> -->
+    
+    <view class="right">
+      456
+    </view>
+  </view>
+</view>

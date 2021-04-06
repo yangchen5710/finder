@@ -1,0 +1,5 @@
+<!--pages/pay/agreement/link.wxml-->
+<!-- <text>pages/pay/agreement/link.wxml</text> -->
+<view class="container">
+  <web-view src="https://test-mellower-main.powercoffee.cn/statement/pay-classic.html"></web-view>
+</view>

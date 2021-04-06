@@ -1,0 +1,95 @@
+<!--pages/fuli/fuli.wxml-->
+<view class="container">
+  <!-- <text>pages/fuli/fuli.wxml</text> -->
+  <view class="content">
+    <view class="coupon">
+      <view class="coupon-content">
+        <view class="coupon-title">
+          <view class="coupon-title-name">
+              咖啡券
+          </view>
+          <view class="coupon-title-gengduo">
+            <view class="coupon-title-gengduo-text">更多</view >
+            <image style="width:8rpx;height: 14rpx;" src="../../icons/you.png"/>
+          </view>
+        </view>
+        <view class="coupon-desc">
+          专享超值优惠，堂食/外卖/自取都可用
+        </view>
+        <view class="coupon-img">
+          <image style="width: 100%;height: 240rpx;border-radius: 20rpx;" src="{{pck_banner.pic}}"/>
+        </view>
+        <view class="coupon-list">
+          <view class="coupon-list-img">
+            <image style="width: 272rpx;height: 176rpx;border-radius: 16rpx;" src="{{pck_activitys[0].coupon_modal_pic}}"/>
+          </view>
+          <view class="coupon-list-desc">
+            <view class="coupon-list-desc-title">{{pck_activitys[0].name}}</view>
+            <view class="coupon-list-desc-desc">{{pck_activitys[0].description}}</view>
+            <view class="coupon-list-desc-price">
+              <view style="width:50%">
+                <view class="coupon-list-desc-price-text">价值 ¥{{pck_activitys[0].face_money}}</view>
+              </view>
+              <view style="width:50%;display: flex;justify-content: flex-end;">
+                <view class="coupon-list-desc-price-button">
+                    <view class="price">¥{{pck_activitys[0].recharge_money}}</view>
+                    <view class="qiang">抢</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="coupon-list">
+          <view class="coupon-list-img">
+            <image style="width: 272rpx;height: 176rpx;border-radius: 16rpx;" src="{{pck_activitys[1].coupon_modal_pic}}"/>
+          </view>
+          <view class="coupon-list-desc">
+            <view class="coupon-list-desc-title">{{pck_activitys[1].name}}</view>
+            <view class="coupon-list-desc-desc">{{pck_activitys[1].description}}</view>
+            <view class="coupon-list-desc-price">
+              <view style="width:50%">
+                <view class="coupon-list-desc-price-text">价值 ¥{{pck_activitys[1].face_money}}</view>
+              </view>
+              <view style="width:50%;display: flex;justify-content: flex-end;">
+                <view class="coupon-list-desc-price-button">
+                    <view class="price">¥{{pck_activitys[1].recharge_money}}</view>
+                    <view class="qiang">抢</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+         
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="coupon-content">
+        <view class="coupon-title">
+          <view class="coupon-title-name">
+            礼品卡
+          </view>
+        </view>
+        <view class="coupon-desc">
+          节日送礼精选，充值就能用
+        </view>
+      </view>
+      <view class="card-img">
+          <swiper style="height:362rpx;" easing-function="default" bindchange="swiperChange" current="0" circular="{{true}}" snap-to-edge="{{true}}" indicator-dots="{{false}}" autoplay="{{true}}}" interval="{{4000}}" duration="{{1100}}" previous-margin="105rpx" next-margin="90rpx">
+            <block  wx:for="{{card_activitys}}" wx:key="index">
+                  <swiper-item>
+                    <view style="display:flex;flex-direction:column;">
+                      <view bindtap="goGiftCard" data-giftcard="{{item}}" style="width:497rpx;height:282rpx;display:flex;align-items:center;">
+                        <view class='{{swiperIndex == index ? "active" : "slide-image"}}'>
+                          <image mode="scaleToFill" src='{{item.coupon_modal_pic}}' class='{{swiperIndex == index ? "active" : "slide-image"}}' />
+                        </view>
+                      </view>
+                      <view class="card-price">¥{{item.recharge_money}}</view>
+                    </view>
+                  </swiper-item>
+            </block>
+          </swiper>  
+      </view>
+    </view>
+  </view>
+</view>

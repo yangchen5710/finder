@@ -1,0 +1,68 @@
+<!--pages/shop/index.wxml-->
+<view class="container">
+  <view class="banner">
+    <image mode="widthFix" style="width:100%;" src="../../icons/shop-banner.png"/>
+  </view>
+  <view class="user-point">
+     <view class="user-point-content">
+        <view style="width:80%;display:flex;align-items: center;">
+          <view style="height:42rpx;font-size: 30rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #333333;line-height: 42rpx;">我的积分</view>
+          <view wx:if="{{userInfo}}" style="margin-left: 16rpx;height: 45rpx;font-size: 32rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #CCAA7A;line-height: 45rpx;">{{member_points}}</view>
+          <view wx:if="{{!userInfo}}" style="margin-left: 16rpx;width: 130px;height: 37rpx;font-size: 26rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #B0B0B0;line-height: 37rpx;">登录后查看</view>
+        </view>
+        <view style="width:20%;display: flex;justify-content: flex-end; align-items: center;">
+          <image style="width:12rpx;height:21rpx" mode="widthFix" src="../../icons/you.png"/>
+        </view>
+     </view>
+  </view>
+  <view class="goods-list">
+    <view style="margin-bottom:20rpx;" wx:for="{{point_shop_lists}}" wx:key="index" wx:if="{{index % 2 == 0}}">
+      <view style="display:flex">
+        <view class="goods">
+          <view style="height:267rpx;background: #F7F8F9;">
+            <image mode="widthFix" style="width:100%;" src="{{point_shop_lists[index].img}}"/>
+          </view>
+          <view class="goods_detail">
+            <view class="goods_name">{{point_shop_lists[index].name}}</view>
+            <view class="goods_detail_price">
+              <view class="goods_detail_price_color">{{point_shop_lists[index].point}}</view>
+              <view>积分</view>
+              <view class="goods_detail_price" wx:if="{{point_shop_lists[index].sale_price && point_shop_lists[index].sale_price > 0 }}">
+                <view>+</view>
+                <view class="goods_detail_price_color">
+                  {{point_shop_lists[index].sale_price}}
+                </view>
+                <view>元</view>
+              </view>
+            </view>
+            <view class="duihuan_button">
+              <view class="duihuan_button_text">兑换</view>
+            </view>
+          </view>
+          
+        </view>
+        <view style="width:2%"></view>
+        <view wx:if="{{point_shop_lists[index+1]}}" class="goods">
+          <view style="height:267rpx;background: #F7F8F9;">
+            <image mode="widthFix" style="width:100%;" src="{{point_shop_lists[index+1].img}}"/>
+          </view>
+          <view class="goods_detail">
+            <view class="goods_name">{{point_shop_lists[index+1].name}}</view>
+            <view class="goods_detail_price">
+              <view class="goods_detail_price_color">{{point_shop_lists[index+1].point}}</view>
+              <view>积分</view>
+            <view class="goods_detail_price" wx:if="{{point_shop_lists[index+1].sale_price && point_shop_lists[index+1].sale_price > 0 }}">
+              <view>+</view>
+              <view class="goods_detail_price_color">{{point_shop_lists[index+1].sale_price}}</view>
+              <view>元</view>
+              </view>
+            </view>
+            <view class="duihuan_button">
+              <view class="duihuan_button_text">兑换</view>
+            </view>
+          </view> 
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

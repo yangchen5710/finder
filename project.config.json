@@ -18,27 +18,30 @@
     "scopeDataCheck": false,
     "uglifyFileName": false,
     "checkInvalidKey": true,
-    "checkSiteMap": true,
+    "checkSiteMap": false,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
-    "useMultiFrameRuntime": false,
+    "useMultiFrameRuntime": true,
     "useApiHook": true,
+    "useApiHostProcess": false,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
     "enableEngineNative": false,
+    "bundle": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.0.4",
-  "appid": "wx5d867b72e2f7db72",
+  "libVersion": "2.15.0",
+  "appid": "wx95a4dca674b223e1",
   "projectname": "finder",
   "debugOptions": {
     "hidedInDevtools": []
@@ -48,23 +51,54 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
+    "plugin": {
       "list": []
     },
     "game": {
-      "list": []
-    },
-    "plugin": {
       "list": []
     },
     "gamePlugin": {
       "list": []
     },
     "miniprogram": {
-      "list": []
+      "list": [
+        {
+          "name": "查看门店列表",
+          "pathName": "pages/store/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/fuli/fuli",
+          "pathName": "pages/fuli/fuli",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/shop/index",
+          "pathName": "pages/shop/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/fuli/gift_card/detail",
+          "pathName": "pages/fuli/gift_card/detail",
+          "query": "id=74",
+          "scene": null
+        },
+        {
+          "name": "pages/my/index",
+          "pathName": "pages/my/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/menu/index",
+          "pathName": "pages/menu/index",
+          "query": "",
+          "scene": null
+        }
+      ]
     }
   }
 }
